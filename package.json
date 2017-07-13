@@ -1,0 +1,31 @@
+{
+  "name": "bunyan-log-reader",
+  "version": "0.1.0",
+  "description": "A simple web application for reading bunyan logs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naortor/bunyan-log-reader.git"
+  },
+  "keywords": [
+    "bunyan"
+  ],
+  "author": "Naor Torgeman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/naortor/bunyan-log-reader/issues"
+  },
+  "homepage": "https://github.com/naortor/bunyan-log-reader#readme",
+  "dependencies": {
+    "moment": "^2.18.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-dropzone": "^3.13.3"
+  },
+  "devDependencies": {
+    "webpack": "^3.2.0"
+  }
+}
