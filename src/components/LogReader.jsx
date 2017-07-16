@@ -1,36 +1,49 @@
 import * as React from "react";
 var createReactClass = require('create-react-class');
 import FileUploader from "./FileUploader";
+import Log from './Log';
 
 const LogReaderMixins = {
-    onDrop(file) {
-        file = file.pop();
-        var reader = new FileReader();
-        reader.onload = function (event) {
-            let bunyan = event.target.result;
-            bunyan = "[" + bunyan.split("\n").join(',');
-            if (bunyan[bunyan.length - 1] === ",") bunyan = bunyan.substring(0, bunyan.length - 1);
-            bunyan += "]";
-            var obj = JSON.parse(bunyan);
-            console.log(obj);
-        };
-        reader.readAsText(file);
-    }
 };
 
 const LogReader = createReactClass({
     getInitialState() {
         return {
-            fileUploaded: false
+            fileUploaded: false,
+            logs: []
         };
     },
-    mixins: [LogReaderMixins],
+    onDrop(file) {
+        file = file.pop();
+        var reader = new FileReader();
+        var logsArr = [];
+        reader.onload = (event) => {
+            let bunyan = event.target.result;
+            logsArr = bunyan.split("\n").filter((line) => !!line).map((line) => {
+                return JSON.parse(line)
+            });
+            this.setState({
+                fileUploaded: true,
+                logs: logsArr
+            })
+        };
+        reader.readAsText(file);
+    },
     render() {
+
+        if (!this.state.fileUploaded) {
+            return (
+                <div>
+                    <FileUploader onDrop={this.onDrop} />
+                </div>
+            );
+        }
+
         return (
             <div>
-                <FileUploader onDrop={this.onDrop} />
+                <Log log={this.state.logs} />
             </div>
-        );
+        )
     }
 });
 
