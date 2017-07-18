@@ -23,13 +23,7 @@ module.exports = {
             },
 
             { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
-            {
-                test: /\.scss$/,
-                loader: ExtractTextPlugin.extract({
-                    fallback: 'style-loader', // The backup style loader
-                    use: ['css-loader?sourceMap', 'sass-loader?sourceMap']
-                })
-            }
+            { test: /\.css$/, loader: "style-loader!css-loader" }
         ]
     },
 

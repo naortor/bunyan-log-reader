@@ -13,7 +13,6 @@ const FileUploader = createReactClass({
         return (
             <ul>
                 {log.map((event,i)=>{
-                    console.log(event);
                     return (
                         <li key={i}>
                             <div className="date">{moment(event.time).format('DD-MM-YYYY h:mm:ss')}</div>
