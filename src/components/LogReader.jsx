@@ -1,14 +1,12 @@
 import * as React from "react";
 var createReactClass = require('create-react-class');
 import FileUploader from "./FileUploader";
-import Log from './Log';
-import { css } from 'emotion'
+import LogsList from './LogsList';
+import { css } from 'emotion';
 
 const wrapper = css`
-    min-height: 95vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    min-height: 100vh;
+    background-color: #2b2727;
 `;
 
 const LogReader = createReactClass({
@@ -46,7 +44,7 @@ const LogReader = createReactClass({
 
         return (
             <div className={wrapper}>
-                <Log log={this.state.logs} />
+                <LogsList log={this.state.logs} />
             </div>
         )
     }
