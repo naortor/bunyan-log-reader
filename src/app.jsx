@@ -7,7 +7,9 @@ import { css } from 'emotion';
 const defaultStyle = css`
     ul {
         padding:0;
-        margin:0;
+        li {
+            list-style: none;
+        }
     }
 `;
 

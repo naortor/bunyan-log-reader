@@ -5,6 +5,8 @@ import Dropzone from 'react-dropzone';
 import PropTypes from 'prop-types';
 import { css } from 'emotion';
 
+import Log from './Log';
+
 const wrapper = css`
     color:#fefefe;
 `;
@@ -14,14 +16,12 @@ const LogsList = createReactClass({
 
     render() {
         let { log } = this.props;
+        console.log(log);
         return (
             <ul className={wrapper}>
-                {log.map((event,i)=>{
+                {log.map((event, i) => {
                     return (
-                        <li key={i}>
-                            <div className="date">{moment(event.time).format('DD-MM-YYYY h:mm:ss')}</div>
-                            <pre className="message">{JSON.stringify(event.message, null, 2)}</pre>
-                        </li>
+                        <Log key={i}{...event} />
                     )
                 })}
             </ul>

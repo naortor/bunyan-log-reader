@@ -1,4 +1,6 @@
-.css-defaultStyle-1p4czmk ul {
+.css-defaultStyle-1wdkmww ul {
     padding: 0;
-    margin: 0;
+}
+.css-defaultStyle-1wdkmww ul li {
+    list-style: none;
 }
