@@ -9,7 +9,7 @@ const wrapper = css`
             color:red;
         }
         &.info {
-            color:blue;
+            color:deepskyblue;
         }
         &.debug {
             color:yellow;
