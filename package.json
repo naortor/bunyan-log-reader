@@ -22,12 +22,12 @@
   "homepage": "https://github.com/naortor/bunyan-log-reader#readme",
   "dependencies": {
     "create-react-class": "^15.6.0",
-    "emotion": "^6.0.2",
+    "emotion": "^6.0.3",
     "moment": "^2.18.1",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-dropzone": "^3.13.3"
+    "react-dropzone": "^3.13.4"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
@@ -39,6 +39,6 @@
     "sass-loader": "^6.0.6",
     "source-map-loader": "^0.2.1",
     "style-loader": "^0.18.2",
-    "webpack": "^3.2.0"
+    "webpack": "^3.4.1"
   }
 }

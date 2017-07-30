@@ -3,7 +3,6 @@ var moment = require('moment');
 import { css } from 'emotion';
 
 const wrapper = css`
-    padding: 30px;
     .level {
         &.error {
             color:red;
@@ -34,14 +33,14 @@ const details = css`
 
 const Log = (props) => {
 
-    let date = moment(props.time).format('DD-MM-YYYY h:mm:ss');
-    let mainMessage = props.msg;
+    let date = moment(props.log.time).format('DD-MM-YYYY h:mm:ss');
+    let mainMessage = props.log.msg;
 
     let level = '';
 
-    let otherPropKeys = Object.keys(props).filter((key) => !~['date', 'level', 'msg'].indexOf(key));
+    let otherPropKeys = Object.keys(props.log).filter((key) => !~['date', 'level', 'msg'].indexOf(key));
 
-    switch (props.level) {
+    switch (props.log.level) {
         case 10:
             level = 'TRACE';
             break;
@@ -71,13 +70,13 @@ const Log = (props) => {
                     return <li key={i}>
                         <div className="label">{key} : </div>
                         <div className="value">
-                            {props[key].constructor === Object && <br />}
+                            {props.log[key].constructor === Object && <br />}
                             <pre>
                                 {
-                                    props[key].constructor === Object ? JSON.stringify(props[key], null, 2) : props[key]
+                                    props.log[key].constructor === Object ? JSON.stringify(props.log[key], null, 2) : props.log[key]
                                 }
                             </pre>
-                            {props[key].constructor === Object && <br />}
+                            {props.log[key].constructor === Object && <br />}
                         </div>
                     </li>
                 })}
